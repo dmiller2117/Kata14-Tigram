@@ -10,6 +10,10 @@ import java.util.stream.Stream;
 
 public class FileReader {
 
+    private FileReader(){
+        // private constructor for utility class
+    }
+
     public static String getFileAsString(String filename) throws IOException, URISyntaxException {
 
         Path path = Paths.get(FileReader.class.getClassLoader()
