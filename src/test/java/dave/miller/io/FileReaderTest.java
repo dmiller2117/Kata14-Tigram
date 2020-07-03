@@ -1,5 +1,6 @@
 package dave.miller.io;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -7,15 +8,11 @@ import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Test the FileReader")
 class FileReaderTest {
 
     @Test
-    void getFileAsString() throws IOException, URISyntaxException {
-        String fileString = FileReader.getFileAsString("testFile.txt");
-        assertEquals("This is a test file with some text in it.", fileString);
-    }
-
-    @Test
+    @DisplayName("Test we can read a file and return it as a String")
     void getFileMultiLineAsString() throws IOException, URISyntaxException {
         String fileString = FileReader.getFileAsString("testFileMultiLine.txt");
         assertEquals("There was a rushing, whizzing, throbbing noise in the air.  A great\n" +

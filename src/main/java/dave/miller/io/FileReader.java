@@ -14,7 +14,7 @@ public class FileReader {
         // private constructor for utility class
     }
 
-    public static String getFileAsString(String filename) throws IOException, URISyntaxException {
+    public static String getFileAsString(final String filename) throws IOException, URISyntaxException {
 
         Path path = Paths.get(FileReader.class.getClassLoader()
                 .getResource(filename).toURI());

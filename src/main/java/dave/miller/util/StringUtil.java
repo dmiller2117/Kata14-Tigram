@@ -6,8 +6,21 @@ public class StringUtil {
         // private method for utility class
     }
 
-    public static String removePunctuation(String string) {
+    public static String removePunctuation(final String string) {
         return string.replaceAll("\\p{P}", "");
     }
+
+    public static String removeNewLine(final String string) {
+        return string.replaceAll("\n", " ").replaceAll("\r", " ");
+    }
+
+    public static String removeWhiteSpace(final String string) {
+        return string.trim().replaceAll(" +", " ");
+    }
+
+    public static String[] splitStringBySpace(final String string){
+        return string.split(" ");
+    }
+
 
 }
