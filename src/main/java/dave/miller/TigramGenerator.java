@@ -37,8 +37,12 @@ public class TigramGenerator {
 
         Map<String, List<String>> tigramMap = TigramUtil.generateTigramMap(textArray);
         Logger.log(tigramMap.toString());
-        Logger.log("End of processing");
 
+        String tigramText = TigramUtil.generateTigramText(tigramMap);
+
+        Logger.log(tigramText);
+
+        Logger.log("End of processing");
 
     }
 

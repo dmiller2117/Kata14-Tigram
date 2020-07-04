@@ -24,11 +24,27 @@ class StringUtilTest {
     }
 
     @Test
-    @DisplayName("Test we remove new lines, for all varients")
+    @DisplayName("Test new lines are removed, for all variants")
     public void removeNewLine(){
         assertEquals("this has no new lines in it", StringUtil.removeNewLine("this has no new lines\nin it"));
         assertEquals("this has no new lines in it", StringUtil.removeNewLine("this has no new lines\rin it"));
         assertEquals("this has no new lines  in it", StringUtil.removeNewLine("this has no new lines\n\rin it"));
+    }
+
+    @Test
+    @DisplayName("Test that whitespace is removed")
+    public void removeWhiteSpace(){
+        assertEquals("whitespace removed", StringUtil.removeWhiteSpace("                 whitespace removed                "));
+        assertEquals("whitespace removed", StringUtil.removeWhiteSpace("                 whitespace                   removed                "));
+        assertEquals("whitespace removed", StringUtil.removeWhiteSpace("whitespace                   removed"));
+    }
+
+    @Test
+    @DisplayName("Test strings are capitalised")
+    public void capitalise(){
+        assertEquals("Hello", StringUtil.capitalise("hello"));
+        assertEquals("Another hello", StringUtil.capitalise("another hello"));
+        assertEquals("Hello", StringUtil.capitalise("Hello"));
     }
 
 }

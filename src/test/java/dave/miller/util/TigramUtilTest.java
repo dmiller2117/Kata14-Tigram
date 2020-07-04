@@ -12,11 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test the TigramUtil")
 class TigramUtilTest {
 
+    final String[] textArray = new String[]{"I", "wish", "I", "may", "I", "wish", "I", "might"};
+
     @Test
     @DisplayName("create a TigramMap and verify it's contents")
     void generateTigramMap() {
-        String[] textArray = new String[] {"I", "wish", "I", "may", "I", "wish", "I", "might"};
-        Map<String, List<String>> tigramMap  = TigramUtil.generateTigramMap(textArray);
+        Map<String, List<String>> tigramMap = TigramUtil.generateTigramMap(textArray);
         Logger.log(tigramMap.toString());
         assertTrue(tigramMap.containsKey("I wish"));
         List<String> valueList = tigramMap.get("I wish");
@@ -40,4 +41,18 @@ class TigramUtilTest {
         assertEquals("may", valueList.get(0));
         assertEquals("might", valueList.get(1));
     }
+
+    @Test
+    @DisplayName("create the TigramText and verify it makes sense, well kind of")
+    public void generateTigramText() {
+
+        Map<String, List<String>> tigramMap = TigramUtil.generateTigramMap(textArray);
+        Logger.log(tigramMap.toString());
+        String text = TigramUtil.generateTigramText(tigramMap);
+        Logger.log(text);
+        assertNotNull(text);
+        assertTrue(text.length() > 0);
+
+    }
+
 }

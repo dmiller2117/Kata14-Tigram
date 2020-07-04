@@ -18,8 +18,12 @@ public class StringUtil {
         return string.trim().replaceAll(" +", " ");
     }
 
-    public static String[] splitStringBySpace(final String string){
+    public static String[] splitStringBySpace(final String string) {
         return string.split(" ");
+    }
+
+    public static String capitalise(final String string) {
+        return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
     }
 
 
