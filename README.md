@@ -5,7 +5,7 @@ http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
 Using the first chapter of Tom Swift and His Submarine Boat.  
 You'll find this in the `src/main/resources` directory.
 
-To run via an IDE simply run the main class, TigramGenerator.
+To run via an IDE simply run the main class, `src/main/java/miller/dave/TigramGenerator.java`.
 To run via command line build the jar with Maven:
 `mvn package`
 Then run the following command:
