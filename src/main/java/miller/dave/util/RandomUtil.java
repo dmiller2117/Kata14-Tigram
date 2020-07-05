@@ -1,4 +1,4 @@
-package dave.miller.util;
+package miller.dave.util;
 
 import java.util.Random;
 

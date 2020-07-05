@@ -1,6 +1,6 @@
-package dave.miller.io;
+package miller.dave.io;
 
-import dave.miller.logging.Logger;
+import miller.dave.logging.Logger;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

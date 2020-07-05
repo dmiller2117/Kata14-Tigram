@@ -1,10 +1,10 @@
-package dave.miller;
+package miller.dave;
 
-import dave.miller.io.FileReader;
-import dave.miller.io.FileWriter;
-import dave.miller.logging.Logger;
-import dave.miller.util.StringUtil;
-import dave.miller.util.TigramUtil;
+import miller.dave.io.FileReader;
+import miller.dave.io.FileWriter;
+import miller.dave.logging.Logger;
+import miller.dave.util.StringUtil;
+import miller.dave.util.TigramUtil;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

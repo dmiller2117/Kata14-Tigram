@@ -1,6 +1,6 @@
-package dave.miller.util;
+package miller.dave.util;
 
-import dave.miller.logging.Logger;
+import miller.dave.logging.Logger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

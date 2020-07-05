@@ -1,4 +1,4 @@
-package dave.miller.logging;
+package miller.dave.logging;
 
 import java.time.LocalDateTime;
 

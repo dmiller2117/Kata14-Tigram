@@ -1,4 +1,4 @@
-package dave.miller.io;
+package miller.dave.io;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;

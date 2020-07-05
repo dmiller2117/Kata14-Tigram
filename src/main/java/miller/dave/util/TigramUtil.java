@@ -1,6 +1,6 @@
-package dave.miller.util;
+package miller.dave.util;
 
-import dave.miller.logging.Logger;
+import miller.dave.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;

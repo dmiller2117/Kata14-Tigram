@@ -1,4 +1,4 @@
-package dave.miller.util;
+package miller.dave.util;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
