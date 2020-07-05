@@ -65,7 +65,6 @@ public class TigramUtil {
         List<String> trigramKeys = new ArrayList<>(tigramMap.keySet());
         String nextWordKey = trigramKeys.get(RandomUtil.generateRandomInt(trigramKeys.size() - 1));
         nextWordKey = StringUtil.capitalise(nextWordKey);
-        Logger.log("Starting words:" + nextWordKey);
         StringBuilder textBuffer = new StringBuilder(nextWordKey);
         List<String> nextWordsList = tigramMap.get(nextWordKey.toLowerCase());
         int sentenceLength = 2;

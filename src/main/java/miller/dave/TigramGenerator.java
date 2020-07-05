@@ -40,14 +40,9 @@ public class TigramGenerator {
 
         String[] textArray = StringUtil.splitStringBySpace(textLowercase);
 
-        Logger.log(textWithNoNewLines);
-
         Map<String, List<String>> tigramMap = TigramUtil.generateTigramMap(textArray);
-        Logger.log(tigramMap.toString());
 
         String tigramText = TigramUtil.generateTigramText(tigramMap);
-
-        Logger.log(tigramText);
 
         String fileName = FileWriter.generateFileName();
         FileWriter.writeFile(tigramText, fileName);
