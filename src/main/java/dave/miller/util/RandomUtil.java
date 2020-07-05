@@ -8,12 +8,12 @@ public class RandomUtil {
         // private constructor for utility class
     }
 
-    public static int generateRandomInt(int upperRange) {
+    protected static int generateRandomInt(int upperRange) {
         Random random = new Random();
         return random.nextInt(upperRange + 1);
     }
 
-    public static int generateRandomInt(int min, int max) {
+    protected static int generateRandomInt(int min, int max) {
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
     }

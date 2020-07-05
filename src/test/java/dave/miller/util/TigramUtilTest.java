@@ -12,31 +12,31 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test the TigramUtil")
 class TigramUtilTest {
 
-    final String[] textArray = new String[]{"I", "wish", "I", "may", "I", "wish", "I", "might"};
+    final String[] textArray = new String[]{"i", "wish", "i", "may", "i", "wish", "i", "might"};
 
     @Test
     @DisplayName("create a TigramMap and verify it's contents")
     void generateTigramMap() {
         Map<String, List<String>> tigramMap = TigramUtil.generateTigramMap(textArray);
         Logger.log(tigramMap.toString());
-        assertTrue(tigramMap.containsKey("I wish"));
-        List<String> valueList = tigramMap.get("I wish");
+        assertTrue(tigramMap.containsKey("i wish"));
+        List<String> valueList = tigramMap.get("i wish");
         assertEquals(2, valueList.size());
-        assertEquals("I", valueList.get(0));
-        assertEquals("I", valueList.get(1));
+        assertEquals("i", valueList.get(0));
+        assertEquals("i", valueList.get(1));
 
-        assertTrue(tigramMap.containsKey("may I"));
-        valueList = tigramMap.get("may I");
+        assertTrue(tigramMap.containsKey("may i"));
+        valueList = tigramMap.get("may i");
         assertEquals(1, valueList.size());
         assertEquals("wish", valueList.get(0));
 
-        assertTrue(tigramMap.containsKey("I may"));
-        valueList = tigramMap.get("I may");
+        assertTrue(tigramMap.containsKey("i may"));
+        valueList = tigramMap.get("i may");
         assertEquals(1, valueList.size());
-        assertEquals("I", valueList.get(0));
+        assertEquals("i", valueList.get(0));
 
-        assertTrue(tigramMap.containsKey("wish I"));
-        valueList = tigramMap.get("wish I");
+        assertTrue(tigramMap.containsKey("wish i"));
+        valueList = tigramMap.get("wish i");
         assertEquals(2, valueList.size());
         assertEquals("may", valueList.get(0));
         assertEquals("might", valueList.get(1));

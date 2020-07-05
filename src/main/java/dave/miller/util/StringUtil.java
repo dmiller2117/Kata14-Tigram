@@ -26,5 +26,8 @@ public class StringUtil {
         return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
     }
 
+    public static String getPreviousWord(String nextWordKey) {
+        return splitStringBySpace(nextWordKey)[1];
+    }
 
 }

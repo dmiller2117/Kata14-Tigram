@@ -59,30 +59,57 @@ public class TigramUtil {
 
     public static String generateTigramText(final Map<String, List<String>> tigramMap) {
 
-        if(tigramMap == null || tigramMap.isEmpty()) throw new IllegalArgumentException("tigramMap must not be null or empty");
+        if (tigramMap == null || tigramMap.isEmpty())
+            throw new IllegalArgumentException("tigramMap must not be null or empty");
 
         List<String> trigramKeys = new ArrayList<>(tigramMap.keySet());
         String nextWordKey = trigramKeys.get(RandomUtil.generateRandomInt(trigramKeys.size() - 1));
+        nextWordKey = StringUtil.capitalise(nextWordKey);
         Logger.log("Starting words:" + nextWordKey);
         StringBuilder textBuffer = new StringBuilder(nextWordKey);
-        List<String> nextWordsList = tigramMap.get(nextWordKey);
-        while (nextWordsList != null) {
+        List<String> nextWordsList = tigramMap.get(nextWordKey.toLowerCase());
+        int sentenceLength = 2;
+        int noOfSentences = 0;
 
+        while (nextWordsList != null) {
             String randomNextWord;
-            if (nextWordsList.size() == 1) {
+
+            if (hasOnlyASingleEntry(nextWordsList)) {
                 randomNextWord = nextWordsList.get(0);
             } else {
                 randomNextWord = nextWordsList.get(RandomUtil.generateRandomInt(nextWordsList.size() - 1));
             }
-            Logger.log("randomNextWord :" + randomNextWord);
 
             String nextWordLookupValue = nextWordKey + " " + randomNextWord;
-            textBuffer.append(" ").append(randomNextWord);
+            sentenceLength++;
+            String previousWord = StringUtil.getPreviousWord(nextWordKey);
+            String capitaliseWord = PunctuationUtil.capitaliseWord(previousWord, randomNextWord, sentenceLength);
+
+            if (PunctuationUtil.isNewSentence(sentenceLength, capitaliseWord)) {
+                textBuffer.append(" ").append(capitaliseWord).append(".  ");
+                sentenceLength = 0;
+                noOfSentences++;
+                if (PunctuationUtil.isNewParagraph(noOfSentences)) {
+                    textBuffer.append(System.lineSeparator());
+                    textBuffer.append(System.lineSeparator());
+                    noOfSentences = 0;
+                }
+            } else {
+                if (PunctuationUtil.isNewSentence(sentenceLength)) {
+                    textBuffer.append(capitaliseWord);
+                } else {
+                    textBuffer.append(" ").append(capitaliseWord);
+                }
+            }
+
             nextWordKey = nextWordLookupValue.substring(nextWordLookupValue.indexOf(" ") + 1);
-            Logger.log("nextWordKey :" + nextWordKey);
-            nextWordsList = tigramMap.get(nextWordKey);
+            nextWordsList = tigramMap.get(nextWordKey.toLowerCase());
         }
-        return textBuffer.toString();
+        return textBuffer.append(".").toString();
+    }
+
+    private static boolean hasOnlyASingleEntry(List<String> nextWordsList) {
+        return nextWordsList.size() == 1;
     }
 
 }
